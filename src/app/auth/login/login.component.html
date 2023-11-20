@@ -1,0 +1,34 @@
+<div class="container vh-100">
+    <div class="row justify-content-center h-100">
+        <div class="col-md-auto align-self-center text-center">
+            <form [formGroup]="form_login" autocomplete="off" (ngSubmit)="submitLogin()">
+                <h2>INMO INK | Login</h2>
+                <hr>
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="pepito@...." type="email" required formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide" type="button">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="my-2">
+                    <button class="btn btn-outline-link" [routerLink]="['/register']" type="button">
+                        ¿No tienes cuenta? Crea una ahora!
+                    </button>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="form_login.invalid">
+                    Iniciar Sesion
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <form [formGroup]="form_inmueble" autocomplete="off" (ngSubmit)="submitInmueble()">
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Nombre de inmueble</mat-label>
+                        <input matInput placeholder="..." type="text" required formControlName="name_inmueble">
+                    </mat-form-field>
+                </div>
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea matInput placeholder="Ej. El inmueble es grande..." formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Direccion</mat-label>
+                        <input matInput placeholder="cra 12 # 12-34, bogota, colombia" type="text" required formControlName="address" (change)="onHanndleChangeDirOrigin($event)">
+                    </mat-form-field>
+                </div>
+                <div class="my-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="..." type="number" required formControlName="price">
+                    </mat-form-field>
+                </div>
+                <button class="btn btn-primary w-100" [disabled]="form_inmueble.invalid">
+                    {{ is_edit === false ? 'Registrar' : 'Actualizar' }} inmueble
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="row justify-content-center h-100 my-4">
+    <div class="col-md-auto align-self-center w-75">
+        <table mat-table [dataSource]="dataSource" class="w-100">
+
+            <ng-container matColumnDef="mes">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Mes </th>
+                <td mat-cell *matCellDef="let element" class="text-center"> {{element.mes}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_inmueble">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Total en el mes </th>
+                <td mat-cell *matCellDef="let element" class="text-center"> {{element.total_inmueble}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_price">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> Total de precio </th>
+                <td mat-cell *matCellDef="let element" class="text-center"> {{element.total_price}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
